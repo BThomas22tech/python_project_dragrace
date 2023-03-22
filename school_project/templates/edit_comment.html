@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+
+<body>
+    <form action="/edited_comment/{{comment.id}}" method="post">
+        <input type="hidden" name="user_id" value={{comment.user_id}}>
+        <input type="hidden" name="queen_id" value={{comment.queen_id}}>
+        <div id="new_recipe" class="bg-secondary p-3 row ">
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="comment">Update Comment:</label>
+                    <input type="text" class="form-control" name="comment" value="{{comment.comment}}">
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="{{session.user_id}}">
+
+        </div>
+        <div class="col-4">
+
+
+            <input type="submit" value="Submit" class="mt-2 btn btn-primary">
+        </div>
+    </form>
+
+    <a href="/states">Home</a>
+
+</body>
+
+</html>

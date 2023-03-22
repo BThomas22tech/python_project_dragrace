@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">    
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="justify-content-center text-danger"> 
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div> 
+    <div class="container d-flex justify-content-center">
+    
+        <div class="row">
+            <div class="col">
+                <form action="/", method="post">
+                <div class="form-group">
+                    <h1>Registration</h1>
+                    <label for="first name">First Name:</label>
+                    <input type="text" class="form-control" name="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="last name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="text" class="form-control" name="email">
+                <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="password" class="form-control" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">confirm password</label>
+                    <input type="password" class="form-control" name="confirm_password">
+            </div>
+
+                <input type="submit" value="Submit" class="mt-2 btn btn-outline">
+                </form>
+            </div>
+        </div>
+        <div class="row ml-3">
+            <div class="col">
+                <form action="/login", method="post">
+                <div class="form-group">
+                    <h1>Sign In</h1>
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                
+                <input type="submit" value="Submit" class="mt-2 btn btn-outline">
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>
+</body>
+</html>

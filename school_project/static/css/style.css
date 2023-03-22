@@ -1,0 +1,17 @@
+.btn{
+    color:hotpink;
+    border-color: hotpink;
+}
+body{background-color: rgb(224, 182, 182);}
+
+.map{
+    width: 1000px;
+    align-items: center;
+}
+.color{
+    background-color:rgb(224, 182, 182);
+}
+.map-holder{
+    display: flex;
+    justify-content: center;
+}

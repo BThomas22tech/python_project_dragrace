@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+
+<body>
+    Comments for
+    {{queen.first_name}} {{queen.last_name}}
+
+    {%for comment in queen.user_comments%}
+    <br>
+    {{comment.creator.first_name}}
+    {{comment.comment}}
+    <a href="/delete_comment/{{comment.id}}">Delete</a>
+    <a href="/edit_comment/{{comment.id}}">Edit</a>
+    {%endfor%}
+    
+    <!-- user comment here -->
+    
+    <form action="/save_comment/{{queen.id}}" method="post">
+        <label for="comment">Comment</label>
+        <input type="text" name="comment">
+        <button>Submit</button>
+    </form>
+
+
+    <!-- posted by: user name -->
+
+    <a href="/states">Home</a>
+
+</body>
+
+</html>

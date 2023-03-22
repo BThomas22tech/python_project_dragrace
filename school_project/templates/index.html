@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static',filename='drag_api.js') }}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="/insert_queen" method="post">
+        <h3 id="info">
+            <div class="form-group">
+                <label for="season">Season</label>
+                <input type="text" class="form-control" name="season">
+            </div> 
+            <div class="form-group">
+                <label for="network">first name</label>
+                <input type="text" class="form-control" name="first_name"></input>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="network">last name</label>
+                    <input type="text" class="form-control" name="last_name"></input>
+                </div>
+                <div class="form-group">
+                    <label for="network">age</label>
+                    <input type="text" class="form-control" name="age"></input>
+                </div>
+                <div class="form-group">
+                    <label for="network">placement</label>
+                    <input type="text" class="form-control" name="placement"></input>
+                </div>
+                <div class="form-group">
+                    <label for="network">city</label>
+                    <input type="text" class="form-control" name="city_name"></input>
+                </div>
+                <div class="form-group">
+                    <label for="network">state</label>
+                    <input type="text" class="form-control" name="state_name"></input>
+                </div>
+            
+        </h3>
+        <button id="button">Insert Queen</button>
+    </form>
+    <button id="the_button" onclick="insert()">Click here!</button>
+</body>
+</html>
