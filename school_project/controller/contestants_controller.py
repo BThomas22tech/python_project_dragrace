@@ -18,19 +18,19 @@ def view_states():
 @app.route('/contestants/<data>')
 def view_queens_in_state(data):
     state = Queen.get_all_queens_in_state(data)
-    
-    return render_template('queen_in_state.html', state = state)
+    state_name = Queen.get_state_name(data)
+    return render_template('queen_in_state.html', state = state, state_name = state_name)
 
-@app.route('/insert_queen')
-def add_a_queen():
-    return render_template('index.html')
+# @app.route('/insert_queen')
+# def add_a_queen():
+#     return render_template('index.html')
 
-@app.route('/insert_queen', methods = ['POST'])
-def add_queen():
+# @app.route('/insert_queen', methods = ['POST'])
+# def add_queen():
     
-    contestants = request.get_json()
-    print('line 27')
+#     contestants = request.get_json()
+#     print('line 27')
     
-    Queen.save_queen_api(contestants)
+#     Queen.save_queen_api(contestants)
 
-    return redirect('/insert_queen')
+#     return redirect('/insert_queen')

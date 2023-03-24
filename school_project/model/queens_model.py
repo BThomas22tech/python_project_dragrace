@@ -46,22 +46,12 @@ class Queen:
 
     @classmethod
     def get_all_queens_in_state(cls, data):
-        query = "select * from queens left join comments on queens.id = comments.queen_id where state_name = %(state_name)s;"
-        results = connectToMySQL('dragrace').query_db(
-            query, data={'state_name': data})
-        comment = []
-        # queens = cls(results[0])
-        # for comment in results:
-        #     comment_data = {
-        #         "id" : comment["comments.id"],
-        #         "queen_id" : comment["queen_id"],
-        #         "user_id" : comment["user_id"],
-        #         "comment" : comment["comment"],
-        #         "created_at" : comment["comments.created_at"],
-        #         "updated_at" : comment["comments.updated_at"],
-        #     }
-        #     queens.posted_by.append( Comment( comment_data ) )
+        query = "select * from queens left join comments on queens.id = comments.queen_id where state_name = %(state_name)s group by queens.id;"
+        results = connectToMySQL('dragrace').query_db(query, data={'state_name': data})
+        
         return results
+
+
 
     @classmethod
     def get_one_queen_comment(cls, data):
@@ -99,35 +89,4 @@ class Queen:
 
             queen.queen_id = comment_instance
 
-            # one_queen = comment_data['queen_id']
-    
-            
-    
-            
-
-    
-
         return queen
-
-    @classmethod
-    def show_queen_w_comment(cls, data):
-        # query = """select * from queens left join comments on queens.id = comments.queen_id left join users on
-        #             comments.user_id = users.id where users.id = %(id)s """
-        query = "select * from queens left join comments on queens.id = comments.queen_id where comments.queen_id =%(queen_id)s"
-        results = connectToMySQL('dragrace').query_db(query, data)
-        # comments = []
-        # for comment in results:
-        #     queen_info = cls(comment)
-        #     comment_data = {
-        #         "id" : comment["comments.id"],
-        #         "queen_id" : comment["queen_id"],
-        #         "user_id" : comment["user_id"],
-        #         "comment" : comment["comment"],
-        #         "created_at" : comment["comments.created_at"],
-        #         "updated_at" : comment["comments.updated_at"],
-
-        #     }
-        #     queen_info.posted_by = Comment( comment_data )
-        #     comments.append(queen_info)
-        # print(comments)
-        # return queen

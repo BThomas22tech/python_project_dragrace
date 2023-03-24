@@ -40,30 +40,6 @@ class User:
         return cls(results[0])
     
 
-
-
-
-
-    # @classmethod
-    # def get_user_with_show( cls,data ):
-    #     query = "SELECT * FROM users JOIN shows ON users.id = shows.user_id where shows.id = %(id)s;"
-    #     results = connectToMySQL('dragrace').query_db( query,{"id":data} )
-        
-    #     user = cls(results[0])
-    #     for show in results:
-    #         show_data = {
-    #             "id" : show["shows.id"],
-    #             "tv_title" : show["tv_title"],
-    #             "network" : show["network"],
-    #             "release_date" : show["release_date"],
-    #             "description": show['description'],
-    #             "created_at" : show["shows.created_at"],
-    #             "updated_at" : show["shows.updated_at"],
-    #             "user_id": show['user_id']
-    #         }
-    #         user.posted_by.append( Show( show_data ) )
-    #     print(user)
-    #     return user
         
 
     @staticmethod
