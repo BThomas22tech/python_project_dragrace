@@ -43,12 +43,13 @@ class Queen:
     def get_all_queens(cls):
         query = "select * from queens group by state_name;"
         return connectToMySQL('dragrace').query_db(query)
-
+    
     @classmethod
     def get_all_queens_in_state(cls, data):
-        query = "select * from queens left join comments on queens.id = comments.queen_id where state_name = %(state_name)s group by queens.id;"
+        query = "SELECT * FROM queens LEFT JOIN comments ON queens.id = comments.queen_id WHERE state_name = %(state_name)s GROUP BY queens.id;"
         results = connectToMySQL('dragrace').query_db(query, data={'state_name': data})
-        
+        for row in results:
+            row['state'] = row.pop('state_name')  # Add a new 'state' key to the row with the value of 'state_name'
         return results
 
 

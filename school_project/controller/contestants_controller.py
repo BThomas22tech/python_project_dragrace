@@ -18,8 +18,10 @@ def view_states():
 @app.route('/contestants/<data>')
 def view_queens_in_state(data):
     state = Queen.get_all_queens_in_state(data)
-    state_name = Queen.get_state_name(data)
-    return render_template('queen_in_state.html', state = state, state_name = state_name)
+    print(data)
+    state_name = state[0]['state']
+    print(state_name)
+    return render_template('queen_in_state.html', state = state, state_name =state_name)
 
 # @app.route('/insert_queen')
 # def add_a_queen():

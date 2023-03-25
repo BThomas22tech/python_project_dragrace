@@ -54,7 +54,7 @@ def edit_a_comment(comment_id):
 
 @app.route('/edited_comment/<int:comment_id>', methods=['post'])
 def edited_a_comment(comment_id):
-    data = {"id": id,
+    data = {"id": comment_id,
         'queen_id': request.form['queen_id'],
         'user_id': request.form['user_id'],
         'comment': request.form['comment'],
