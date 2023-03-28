@@ -3,12 +3,14 @@ from flask import render_template,session, request,redirect,session,flash
 from school_project.model.comment_model import Comment
 from school_project.model.queens_model import Queen
 from flask import url_for
+import datetime
 
 @app.route('/save_comment/<int:queen_id>', methods = ['POST'])
 def save_comment(queen_id):
     if not Comment.validate_comment(request.form):
         return redirect(f'/add_comment/{queen_id}')  #url needs to redirect back to add comment. id's are different.
-    
+    time = datetime.datetime.now().strftime("%B %d, %Y %I:%M:%p")
+    session['time'] = time
     queen_data = {
         'user_id': session['user_id'],
         'queen_id': queen_id,
@@ -17,6 +19,7 @@ def save_comment(queen_id):
         'created_at' :'created_at'
     }
     print(queen_data)
+    print(time)
     Comment.save_comment(queen_data)
     return redirect(f'/add_comment/{queen_id}')
 

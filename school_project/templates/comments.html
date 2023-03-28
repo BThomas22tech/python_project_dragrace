@@ -31,20 +31,23 @@
                 <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30 scroll ">
                     <div class="g-mb-15 ">
 
-
                         {%for comment in queen.user_comments%}
+                        <div class="border border-dark mt-2">
                         {%if comment.comment == None %}
-
+                        
                         <p>Be the first to comment!</p>
                         {%else%}
-                        <ul>
+                        <ul class="p-2">
                             <li>{{comment.creator.first_name}} said:</li>
-                            <li>{{comment.comment}}</li><br>
-                            {% if 'user_id' in session %}
+                            <li>{{comment.comment}}</li>
+                            
+                            <li>{{session.time}}</li>
+                            {% if session['user_id'] == comment.user_id %}
                             <a href="/delete_comment/{{comment.id}}">Delete</a>
                             <a href="/edit_comment/{{comment.id}}">Edit</a>
                         </ul>{%endif%}
-                            {%endif%}
+                        {%endif%}
+                    </div>
                         {%endfor%}
                     </div>
 
