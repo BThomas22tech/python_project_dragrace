@@ -12,8 +12,6 @@ async function apicall() {
             console.log(HometownData)
         }
 
-
-
         else {
             HometownData = 'null'
         }
@@ -41,7 +39,6 @@ async function apicall() {
 
 }
 apicall()
-
 
 function insert() {
     // $.post("/insert_queen", {

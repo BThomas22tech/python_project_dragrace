@@ -23,6 +23,8 @@ def view_queens_in_state(data):
     print(state_name)
     return render_template('queen_in_state.html', state = state, state_name =state_name)
 
+
+
 # @app.route('/insert_queen')
 # def add_a_queen():
 #     return render_template('index.html')
